@@ -4,6 +4,7 @@
 alias codej="cd /Users/serialcoder/Projects/CodeForces-Java/codeforces-parser"
 alias p=./parse.py 
 alias r=./test.sh 
+alias gen='python /Users/serialcoder/PycharmProjects/PythonCodingUtils/main.py'
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/serialcoder/.oh-my-zsh"
