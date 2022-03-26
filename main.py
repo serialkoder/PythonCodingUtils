@@ -6,14 +6,29 @@ import sys
 def create(contest, round):
     os.chdir("/Users/serialcoder/Projects/")
     if contest == 'AT' and round != "":
-        createFolder(os.path.join(os.getcwd(), 'AtCoder'))
-        os.chdir(os.path.join(os.getcwd(), 'AtCoder'))
-        createFolder(os.path.join(os.getcwd(), round))
-        os.chdir(os.path.join(os.getcwd(), round))
-        for i in ['C', 'D', 'E']:
-            createFolder(os.path.join(os.getcwd(), i))
-            shutil.copyfile('/Users/serialcoder/PycharmProjects/PythonCodingUtils/Main.java',
-                            os.path.join(os.getcwd(), i, 'Main.java'))
+        createAtcoder(round)
+    if contest == 'PE' and round != "":
+        createProjectEuler(round)
+
+
+def createProjectEuler(round):
+    createFolder(os.path.join(os.getcwd(), 'ProjectEuler'))
+    os.chdir(os.path.join(os.getcwd(), 'ProjectEuler'))
+    createFolder(os.path.join(os.getcwd(), round))
+    os.chdir(os.path.join(os.getcwd(), round))
+    shutil.copyfile('/Users/serialcoder/PycharmProjects/PythonCodingUtils/Main.java',
+                    os.path.join(os.getcwd(), 'Main.java'))
+
+
+def createAtcoder(round):
+    createFolder(os.path.join(os.getcwd(), 'AtCoder'))
+    os.chdir(os.path.join(os.getcwd(), 'AtCoder'))
+    createFolder(os.path.join(os.getcwd(), round))
+    os.chdir(os.path.join(os.getcwd(), round))
+    for i in ['C', 'D', 'E']:
+        createFolder(os.path.join(os.getcwd(), i))
+        shutil.copyfile('/Users/serialcoder/PycharmProjects/PythonCodingUtils/Main.java',
+                        os.path.join(os.getcwd(), i, 'Main.java'))
 
 
 def createFolder(folder):
