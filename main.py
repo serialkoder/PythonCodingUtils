@@ -9,6 +9,8 @@ def create(contest, round):
         createAtcoder(round)
     if contest == 'PE' and round != "":
         createProjectEuler(round)
+    if contest == 'GC' and round != "":
+        createCodeJam(round)
 
 
 def createProjectEuler(round):
@@ -18,6 +20,17 @@ def createProjectEuler(round):
     os.chdir(os.path.join(os.getcwd(), round))
     shutil.copyfile('/Users/serialcoder/PycharmProjects/PythonCodingUtils/Main.java',
                     os.path.join(os.getcwd(), 'Main.java'))
+
+
+def createCodeJam(round):
+    createFolder(os.path.join(os.getcwd(), 'GoogleCodeJam'))
+    os.chdir(os.path.join(os.getcwd(), 'GoogleCodeJam'))
+    createFolder(os.path.join(os.getcwd(), round))
+    os.chdir(os.path.join(os.getcwd(), round))
+    for i in ['A', 'B', 'C']:
+        createFolder(os.path.join(os.getcwd(), i))
+        shutil.copyfile('/Users/serialcoder/PycharmProjects/PythonCodingUtils/Main.java',
+                        os.path.join(os.getcwd(), i, 'Main.java'))
 
 
 def createAtcoder(round):
