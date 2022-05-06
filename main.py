@@ -11,6 +11,8 @@ def create(contest, round):
         createProjectEuler(round)
     if contest == 'GC' and round != "":
         createCodeJam(round)
+    if contest == 'CF' and round != "":
+        createCodeForces(round)
 
 
 def createProjectEuler(round):
@@ -28,6 +30,19 @@ def createCodeJam(round):
     createFolder(os.path.join(os.getcwd(), round))
     os.chdir(os.path.join(os.getcwd(), round))
     for i in ['A', 'B', 'C']:
+        createFolder(os.path.join(os.getcwd(), i))
+        shutil.copyfile('/Users/serialcoder/PycharmProjects/PythonCodingUtils/Main.java',
+                        os.path.join(os.getcwd(), i, 'Main.java'))
+
+
+def createCodeForces(round):
+    createFolder(os.path.join(os.getcwd(), 'CodeForces-Java'))
+    os.chdir(os.path.join(os.getcwd(), 'CodeForces-Java'))
+    createFolder(os.path.join(os.getcwd(), 'codeforces-parser'))
+    os.chdir(os.path.join(os.getcwd(), 'codeforces-parser'))
+    createFolder(os.path.join(os.getcwd(), round))
+    os.chdir(os.path.join(os.getcwd(), round))
+    for i in ['A', 'B', 'C', 'D', 'E']:
         createFolder(os.path.join(os.getcwd(), i))
         shutil.copyfile('/Users/serialcoder/PycharmProjects/PythonCodingUtils/Main.java',
                         os.path.join(os.getcwd(), i, 'Main.java'))
