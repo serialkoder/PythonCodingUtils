@@ -13,6 +13,8 @@ def create(contest, round):
         createCodeJam(round)
     if contest == 'CF' and round != "":
         createCodeForces(round)
+    if contest == 'CC' and round != "":
+        createCodeChef(round)
 
 
 def createProjectEuler(round):
@@ -54,6 +56,17 @@ def createAtcoder(round):
     createFolder(os.path.join(os.getcwd(), round))
     os.chdir(os.path.join(os.getcwd(), round))
     for i in ['C', 'D', 'E']:
+        createFolder(os.path.join(os.getcwd(), i))
+        shutil.copyfile('/Users/serialcoder/PycharmProjects/PythonCodingUtils/Main.java',
+                        os.path.join(os.getcwd(), i, 'Main.java'))
+
+
+def createCodeChef(round):
+    createFolder(os.path.join(os.getcwd(), 'CodeChef'))
+    os.chdir(os.path.join(os.getcwd(), 'CodeChef'))
+    createFolder(os.path.join(os.getcwd(), round))
+    os.chdir(os.path.join(os.getcwd(), round))
+    for i in ['A', 'B', 'C', 'D', 'E']:
         createFolder(os.path.join(os.getcwd(), i))
         shutil.copyfile('/Users/serialcoder/PycharmProjects/PythonCodingUtils/Main.java',
                         os.path.join(os.getcwd(), i, 'Main.java'))
